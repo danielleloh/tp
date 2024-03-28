@@ -42,7 +42,7 @@ By following this guide, you will be able to gain a thorough understanding of Av
     ```
    You should see this when the app starts up. Note that it contains some sample data when you first run it.<br>
 
-   ![Ui](images/Ui.png)
+<img src="images/Ui.png" alt="image of Avengers Assemble's UI">
 
 5. Refer to the [features](#features) below for details of each command.
 
@@ -78,10 +78,10 @@ Provides you with warnings about potential issues you might face.
 
 Shows you a link to guide you on how to use the application. Click on the link to access the user guide.
 
-![help message](images/helpMessage.png)
+<img src="image/helpMessage.png" alt="image of help message window" width="500">
 
 **Format:** `help`
->Note: The application ignores any extraneous parameters i.e. `help 123` will be interpreted as `help` by Avengers Assemble.
+> **Note:** The application ignores any extraneous parameters i.e. `help 123` will be interpreted as `help` by Avengers Assemble.
 
 <br>
 
@@ -138,7 +138,7 @@ Adds a contact John Doe with the respective phone number, email and physical add
 **Tip:** A person can have any number of tags (including 0)
 </box>
 
->Note: The following tags will be automatically added to the person if the following conditions are met:
+> **Note:** The following tags will be automatically added to the person if the following conditions are met:
 > 1. `student`: If matriculation number, studio, and reflection fields are present;
 > 2. `TA`: If matriculation number and one of either studio or reflection fields are present;
 > 3. `instructor`: If none of the three fields are present.
@@ -153,8 +153,8 @@ For more details on each parameter, [click here](#command-format-summary).
 
 Displays all the persons in your contact list.
 
-Format: `list`
->Note: The application ignores any extraneous parameters i.e. `list 123` will be interpreted as `list` by Avengers Assemble.
+**Format:** `list`
+> **Note:** The application ignores any extraneous parameters i.e. `list 123` will be interpreted as `list` by Avengers Assemble.
 
 <br>
 
@@ -255,21 +255,23 @@ Deletes the specified person from your contact list.
 
 Deletes the current filtered list of persons. Requires a `find` command to be run first.
 
-Format: `deleteshown`
->Note: The application ignores any extraneous parameters i.e. `deleteshown 123` will be interpreted as `deleteshown` by Avengers Assemble.
+**Steps:**
+1. Use the [`find`](#filtering-persons--find) command to filter out the list of persons you want to delete.
+2. Type `deleteshown` to delete all persons in the current filtered list of persons.
 
-* Deletes all persons in the current filtered list of persons.
-* The list of persons is filtered using the most recent `find` command.
-* The remaining list of persons is shown after the `find` command is executed.
+**Format:** `deleteshown`
+>Note: The application ignores any extraneous parameters i.e. `deleteshown 123` will be interpreted as `deleteshown` by Avengers Assemble.
 
 <br>
 
 ### Clearing All Entries : `clear`
 
-Clears all entries from AA.
+Clears **all** entries from your contact list.
 
 Format: `clear`
->Note: The application ignores any extraneous parameters as we assume they are typos.
+> **Note:** The application ignores any extraneous parameters i.e. `clear 123` will be interpreted as `clear` by Avengers Assemble.
+
+<br>
 
 ### Exporting Data to a CSV file : `export`
 
@@ -281,68 +283,27 @@ Exports currently listed persons and their details to a CSV file, avengersassemb
 2. Type `export` to export the currently listed persons and their details to a CSV file.
 3. Upon export, a folder named addressbookdata will be created in the same directory where Avengers Assemble is located. Within this folder, you'll find the CSV file named avengersassemble.csv, containing the exported data.
 
-Format: `export`
->Note: The application ignores any extraneous parameters as we assume they are typos.
+**Format:** `export`
+
+> **Note:** The application ignores any extraneous parameters i.e. `export 123` will be interpreted as `export` by Avengers Assemble.
 
 <box type="info" seamless>
 
-**Important:** <br>
+**Important:** When performing an export, the current information will overwrite the existing CSV file named avengersassemble.csv located within the addressbookdata folder.
+A new CSV file will not be created with each export.
 
-The person at the specified `INDEX` will be deleted. The index **must be a positive integer** (1, 2, 3, …)​
-
-</box>
-
-**Examples**:
-1. `list` followed by `delete 2` deletes the 2nd person stored in the app.
-2. `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
-
->You will see this message once you successfully delete a person from your list, indicating the details of the deleted person:
->
->![delete success message](images/success_images/delete_success.png)
-
-### Clearing All Entries : `clear`
-
-Deletes **all** entries from your contact list.
-
-Format: `clear`
-
->You will see this message once you successfully delete all contacts from your list, indicating all entries have been cleared:
->
->![clear success message](images/success_images/clear_success.png)
-
-### Exporting Data to a CSV File : `export`
-
-Exports currently listed persons and their details to a CSV file of your specification.
-
-Format: `export`
-
-> By default, the file will be stored in `addressbookdata/avengersassemble.csv`.
-
-<box type="tip" seamless>
-
-**Tip:**<br>
-You can specify the groups of contacts you want to export using the [`find`](#filtering-persons--find) or [`list`](#listing-all-persons--list) commands before you use this command.
-</box>
-
-> You will see this message once you successfully export the data:
->
-> ![export success message](images/success_images/export_success.png)
-
-<box type="warning" seamless>
-
-**Caution:**<br>
-
-When performing an export, the current information will overwrite any existing CSV files with the same name.
-
-If you want to preserve the exported data, you should rename it or save it in a separate location.
+Users have the option to manually move the current CSV file out of the addressbookdata folder if they do not want the information to be overwritten in the next export.
+A new CSV file of the same name in the same location will again be created when performing the next export.
 
 </box>
+
+<br>
 
 ### Importing Data from a CSV File : `import`
 
 Imports all persons and their details from a CSV file of your specification.
 
-Format: `import i/FILEPATH`
+**Format:** `import i/FILEPATH`
 
 <box type="info" seamless>
 
@@ -351,24 +312,22 @@ The file path should be **absolute**.
 
 </box>
 
-**Example:**
+**Example:** `import i/C:/Users/alk/Downloads/avengersassemble.csv` 
 
-`import i/C:/Users/alk/Downloads/avengersassemble.csv` imports the data from the CSV file located at `C:/Users/alk/Downloads/avengersassemble.csv`.
-
-> You will see this message once you successfully import the data, with the app showing the details of the imported persons:
-> 
-> ![import success message](images/success_images/import_success.png)
-
+imports the data from the CSV file located at `C:/Users/alk/Downloads/avengersassemble.csv`.
 
 
 For more details on the input parameter, [click here](#command-format-summary).
+
+<br>
 
 ### Exiting the Program : `exit`
 
 Exits the program. The app will close automatically.
 
-Format: `exit`
->Note: The application ignores any extraneous parameters as we assume they are typos.
+**Format:** `exit`
+
+>Note: The application ignores any extraneous parameters i.e. `exit 123` will be interpreted as `exit` by Avengers Assemble.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -394,13 +353,20 @@ Furthermore, certain edits can cause the Avengers Assemble application to behave
 ## FAQ
 
 **Q**: How do I transfer my data to another computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AA home folder.
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Avengers Assemble home folder.
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known Issues
 
-1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
+### Using Multiple Screens
+
+If you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
+
+### Importing on MacOS
+
+On MacOS computers, due to privacy settings, the application may encounter difficulties accessing and importing CSV files from various locations.
+If this issue occurs, transfer the CSV file you want to import to the same folder where the application's JAR file is located, then try again.
 
 --------------------------------------------------------------------------------------------------------------------
 
