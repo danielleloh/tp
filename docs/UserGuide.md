@@ -78,7 +78,9 @@ Provides you with warnings about potential issues you might face.
 
 Shows you a link to guide you on how to use the application. Click on the link to access the user guide.
 
-<img src="images/helpMessage.png" alt="image of help message window">
+<p align="center">
+    <img src="images/helpMessage.png" alt="image of help message window" width="500">
+</p>
 
 **Format:** `help`
 > **Note:** The application ignores any extraneous parameters i.e. `help 123` will be interpreted as `help` by Avengers Assemble.
