@@ -389,6 +389,7 @@ Below is a summary of the commands available in Avengers Assemble. Some examples
 | **Export to CSV** | `export`                                                                                                                                                                                                                                 |
 | **Import**        | `import i/FILEPATH` <br><br>• e.g. `import i/C:/Users/alk/Downloads/avengersassemble.csv`                                                                                                                                                |
 
+<br>
 
 ## Command Format Summary
 
