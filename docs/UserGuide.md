@@ -6,22 +6,24 @@
 
 # Avengers Assemble User Guide
 
-Avengers Assemble (AA) is a **desktop app for managing contacts**, meant for use with a Command Line Interface (CLI) 
+Avengers Assemble (AA) is a **desktop app designed to simplify contact management**. It is meant for use with a Command Line Interface (CLI) 
 while still having the benefits of a Graphical User Interface (GUI). 
 
-The application is designed for **Head Tutors** of the NUS CS1101S Programming Methodology course, who intend to simplify their administrative tasks relating to contact management between students, other teaching assistants, and course instructors.
-However, its functions can also be extended to you if you are a head tutor of another course. 
+This application is designed for **Head Tutors** of the NUS CS1101S Programming Methodology course,
+enabling you to streamline your administrative tasks related to contact management with students, fellow teaching assistants, and course instructors.
 
-Our user guide aims to help you understand how to get started with the application.
+This user guide provides a comprehensive overview of the Avengers Assemble's features and functionalities, 
+and aims to guide you through its setup and usage. 
+We will walk you through each feature in a structured manner:
 
+1. Installation,
+2. Basic commands like adding and editing, and
+3. Advanced commands like filtering and exporting of data.
 
-We will cover the features in a chronological order, from:
-1. Installation, to 
-2. Simple commands like adding and editing, followed by 
-3. More advanced commands like filtering and exporting data.
+By following this guide, you will be able to gain a thorough understanding of Avengers Assemble and maximize its potential to streamline your administrative tasks.
+<br>
 
 <!-- * Table of Contents -->
-<page-nav-print />
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -29,51 +31,48 @@ We will cover the features in a chronological order, from:
 
 1. Ensure you have `Java 11` or above installed in your computer.
 
-1. Download the latest `avengersassemble.jar` [here](https://github.com/AY2324S2-CS2103T-T10-1/tp/releases/tag/v1.2).
+2. Download the latest `avengersassemble.jar` [here](https://github.com/AY2324S2-CS2103T-T10-1/tp/releases/tag/v1.2).
 
-1. Copy the file to the folder you want to use as the _home folder_ for our application.
+3. Copy the file to the folder you want to use as the _home folder_ for our application.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar avengersassemble.jar` command to run the application.<br>
+4. On a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar avengersassemble.jar` command to run the application.<br>
    ```dtd
     cd <path_to_the_folder_containing_the_jar_file>
     java -jar avengersassemble.jar
     ```
-   You should see this when the app starts up. Note how it contains some sample data.<br>
+   You should see this when the app starts up. Note that it contains some sample data when you first run it.<br>
 
    ![Ui](images/Ui.png)
 
-
-
-1. Refer to the [Features](#features) below for details of each command.
+5. Refer to the [features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Features
-
-### Legend
+## Legend
 These boxes might offer you additional information of different types:
 
->**Good to know:**
->I provide you with supporting information.
+> **Good to know:**
+> Provides you with supporting information.
 
 <box type="info" seamless>
 
 **Important:**
-I provide you with more important information that you should know.
+Provides you with more important information that you should know.
 </box>
 
 <box type="tip" seamless>
 
 **Tip:**
-I provide you with tips to use our app more effectively.
+Provides you with tips to use our app more effectively.
 </box>
 
 <box type="warning" seamless>
 
 **Caution:**
-I provide you with warnings about potential issues you might face.
+Provides you with warnings about potential issues you might face.
 </box>
 
+## Features
 
 ### Getting Help : `help`
 
@@ -81,8 +80,10 @@ Shows you a link to guide you on how to use the application. Click on the link t
 
 ![help message](images/helpMessage.png)
 
-Format: `help`
->Note: The application ignores any extraneous parameters as we assume they are typos.
+**Format:** `help`
+>Note: The application ignores any extraneous parameters i.e. `help 123` will be interpreted as `help` by Avengers Assemble.
+
+<br>
 
 Before we proceed with the commands, here are some important points to note on their formatting. These points will also be repeated in the [command format summary](#command-format-summary) for you to refer to easily at any point in time.
 
@@ -113,16 +114,22 @@ Before we proceed with the commands, here are some important points to note on t
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 
 </box>
+<br>
 
 ### Adding a Person: `add`
 
 Adds a person to your contact list. The person's details are now stored in the application.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]… [m/MATRICULATION_NUMBER] [s/STUDIO] [r/REFLECTION]​`
+**Format:** `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]… [m/MATRICULATION_NUMBER] [s/STUDIO] [r/REFLECTION]​`
+
+**Example:**
+`add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 m/A1234567Z s/S1 r/R2`<br>
+
+Adds a contact John Doe with the respective phone number, email and physical addresses, matriculation number, studio group and recitation group.
 
 <box type="info" seamless>
 
-**Important:** Each person should have a unique email address. AA does not allow for duplicate email addresses to be added.
+**Important:** Each person should have a unique email address. Avengers Assemble does not allow for duplicate email addresses to be added.
 
 </box>
 
@@ -131,46 +138,31 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]… [m/MATRICULATION
 **Tip:** A person can have any number of tags (including 0)
 </box>
 
-**Example:**
-`add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 m/A1234567Z s/S1 r/R2`<br>
-
-
-* Adds a contact John Doe with the respective phone number, email and physical addresses, matriculation number, studio group and recitation group.
-
-
 >Note: The following tags will be automatically added to the person if the following conditions are met:
 > 1. `student`: If matriculation number, studio, and reflection fields are present;
 > 2. `TA`: If matriculation number and one of either studio or reflection fields are present;
 > 3. `instructor`: If none of the three fields are present.
 > 
-> You are free to edit or remove the tags after the person is added.
-
-
->You will see this message once you successfully add a person, indicating their details:
->
->
->![add success message](images/success_images/add_success.png)
+> You are free to edit or remove the tags after the person is added using the [`edit`](#editing-a-person--edit) feature.
 
 For more details on each parameter, [click here](#command-format-summary).
+
+<br>
 
 ### Listing All Persons : `list`
 
 Displays all the persons in your contact list.
 
 Format: `list`
->Note: The application ignores any extraneous parameters as we assume they are typos.
+>Note: The application ignores any extraneous parameters i.e. `list 123` will be interpreted as `list` by Avengers Assemble.
 
->You will see this message once you successfully list all contacts, with the app showing all existing persons in the contact list:
->
->
->![list success message](images/success_images/list_success.png)
+<br>
 
 ### Editing a Person : `edit`
 
 Edits the details of an existing person in your contact list.
 
-
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]… [m/MATRICULATION_NUMBER] [s/STUDIO] [r/REFLECTION]​`
+**Format:** `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]… [m/MATRICULATION_NUMBER] [s/STUDIO] [r/REFLECTION]​`
 
 <box type="info" seamless>
 
@@ -186,15 +178,10 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]… [m/MATRI
 **Examples:**
 
 1. `edit 2 n/Betsy Crower t/`: <br>
-* Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+   * Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
 2. `edit 1 p/91234567 e/johndoe@example.com`: <br>
-* Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-
->You will see this message once you successfully edit a person, indicating their updated details:
->
->![edit_success_message](images/success_images/edit_success.png)
-
+   * Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
 
 <box type="info" seamless>
   
@@ -203,14 +190,16 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]… [m/MATRI
 Updating a matriculation number, studio, or reflection field will not automatically update the tags of the person. You will need to manually update the tags if necessary.
 
 </box>
+
 For more details on each parameter, [click here](#command-format-summary).
 
+<br>
 
 ### Filtering Persons: `find`
 
 Filters your contacts based on specific criteria you set.
 
-Format: `find PREFIX/KEYWORD`
+**Format:** `find PREFIX/KEYWORD`
 
 <box type="info" seamless>
 
@@ -218,69 +207,64 @@ Format: `find PREFIX/KEYWORD`
 * Use this command to search for persons using a specific aspect of their details, as specified by the prefix.
 * The search will return any result that contains the keyword you have specified. 
     > e.g. `find e/john` will find any person that contains `john` in their email.
-* The search is **case-insensitive**.
+* The search is **case-insensitive** i.e. `john` and `John` are interpreted to be the same.
 * Only one prefix can be used at a time.
 
 </box>
 
-**Example:**
+**Example:** `find n/John` 
 
-`find n/John` returns `john` and `John Doe` if they exist in your contact book.
-
->You will see this message once you successfully find a person, with the app showing all persons that match your search criteria:
->
->![find success message](images/success_images/find_success.png)
-
+displays all contacts with the name containing `John` in your contact list. 
 
 For more details on each parameter, [click here](#command-format-summary).
+
+<br>
 
 ### Copying Contact Details: `copy`
 
 Copies the emails of currently displayed persons into your clipboard.
 
-Format: `copy`
->Note: The application ignores any extraneous parameters as we assume they are typos.
+**Steps:**
+1. Filter out the persons you would like to email using the [`find`](#filtering-persons--find) or [`list`](#listing-all-persons--list) command.
+2. Type `copy` to copy the emails of the currently listed persons to your clipboard.
+3. The emails will be copied into your clipboard such that you may easily broadcast emails
+   to specific groups of people.
 
->You will see this message once you successfully copy the contact details shown to you, indicating that they have been copied to the clipboard:
->
->![copy success message](images/success_images/copy_success.png)
+**Format:** `copy`
+>Note: The application ignores any extraneous parameters i.e. `copy 123` will be interpreted as `copy` by Avengers Assemble.
 
-<box type="tip" seamless>
-
-**Tip:** <br>
-
-* Use `list` or `find` to get the list of people you would like to email.
-* The emails are copied into your clipboard such that you may easily broadcast emails
-  to specific groups of people.
-
-</box>
+<br>
 
 ### Deleting a Person : `delete`
 
 Deletes the specified person from your contact list.
 
-Format: `delete INDEX`
+**Format:** `delete INDEX`
 
 * Deletes the person at the specified `INDEX`.
 * The index refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
-Examples:
-* `list` followed by `delete 2` deletes the 2nd person in AA.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+**Examples:**
+* `list` followed by `delete 2` deletes the second person displayed in Avengers Assemble.
+* `find Betsy` followed by `delete 1` deletes the first person in the results of the `find` command.
 
-### Deleting filtered persons : `deleteshown`
+<br>
+
+### Deleting All Filtered Persons : `deleteshown`
 
 Deletes the current filtered list of persons. Requires a `find` command to be run first.
 
 Format: `deleteshown`
->Note: The application ignores any extraneous parameters as we assume they are typos.
+>Note: The application ignores any extraneous parameters i.e. `deleteshown 123` will be interpreted as `deleteshown` by Avengers Assemble.
 
 * Deletes all persons in the current filtered list of persons.
 * The list of persons is filtered using the most recent `find` command.
 * The remaining list of persons is shown after the `find` command is executed.
 
-### Clearing all entries : `clear`
+<br>
+
+### Clearing All Entries : `clear`
 
 Clears all entries from AA.
 
